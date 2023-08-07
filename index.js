@@ -9,6 +9,9 @@ const app = express();
 mongoose.connect("mongodb://localhost:27017/ninjago");
 mongoose.Promise = global.Promise;
 
+// express.static midleware to run the app on frontend
+app.use(express.static("public"));
+
 app.use(bodyParser.json()); // middleware
 
 app.use("/api", require("./routes/api")); // require the api and use it
