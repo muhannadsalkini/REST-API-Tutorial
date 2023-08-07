@@ -1,6 +1,7 @@
 // express routing class
 
 const express = require("express"); // require express
+const Ninja = require("../models/ninja"); // import Ninja model
 const router = express.Router(); // router object
 
 // get a lost of ninjas from the db
@@ -10,11 +11,12 @@ router.get("/ninjas", function (req, res) {
 
 // add a new ninja to the db
 router.post("/ninjas", function (req, res) {
-  console.log(req.body);
-  res.send({
-    type: "POST",
-    name: req.body.name,
-    rank: req.body.rank,
+  //   var ninja = new Ninja(req.body);
+  //   ninja.save(); // save in the database
+
+  // create object and save
+  Ninja.create(req.body).then(function (ninja) {
+    res.send(ninja); // response with the saved data
   });
 });
 

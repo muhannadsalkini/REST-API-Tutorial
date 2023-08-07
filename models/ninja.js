@@ -8,7 +8,7 @@ const NinjaSchema = new Schema({
     required: [true, "Name field is required"],
   },
   rank: {
-    typpe: String,
+    type: String,
   },
   available: {
     type: Boolean,
